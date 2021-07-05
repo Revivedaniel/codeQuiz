@@ -1,5 +1,6 @@
 :root {
     --color1: black;
+    --color2: purple;
 }
 
 /*Header style*/
@@ -24,6 +25,10 @@ article {
     height: auto;
     align-items: center;
     margin: auto;
+} article button {
+    background-color: var(--color2);
+    color: white;
+    border-radius: 3px;
 }
 
 .hidden {
