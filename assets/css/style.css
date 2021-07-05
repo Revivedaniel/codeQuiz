@@ -1,3 +1,7 @@
+:root {
+    --color1: black;
+}
+
 /*Header style*/
 header {
     display: flex;
@@ -13,7 +17,13 @@ header {
 article {
     display: flex;
     flex-direction: column;
+    color: var(--color1);
+    font-weight: bold;
+    font-size: x-large;
+    width: 600px;
+    height: auto;
     align-items: center;
+    margin: auto;
 }
 
 .hidden {
