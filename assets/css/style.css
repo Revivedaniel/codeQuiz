@@ -29,3 +29,9 @@ article {
 .hidden {
     display: none;
 }
+
+/*Question style*/
+.question button {
+    align-self: flex-start;
+    margin: 2px 0;
+}
