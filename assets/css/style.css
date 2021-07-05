@@ -1,6 +1,7 @@
 :root {
     --color1: black;
     --color2: purple;
+    --color3: white;
 }
 
 /*Header style*/
@@ -27,7 +28,7 @@ article {
     margin: auto;
 } article button {
     background-color: var(--color2);
-    color: white;
+    color: var(--color3);
     border-radius: 3px;
 }
 
