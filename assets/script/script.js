@@ -1,3 +1,7 @@
+//timer active
+var quizStarted = false;
+var quizDone = false;
+var quizFailed = false;
 //place all articles in variables
 var beginEL = document.querySelector("#begin");
 var questionsEL = document.querySelectorAll(".question");
@@ -22,7 +26,22 @@ var scoresGrid = highScoresEL.querySelector("ul")
 //place time in variable
 var timeStamp = document.querySelector("#timeStamp")
 //create timer
-
+// Timer that counts down from 99
+function countdown() {
+    var timeLeft = 99;
+  
+    var timeInterval = setInterval(function () {
+      if (timeLeft > 1) {
+        timeStamp.textContent = String(timeLeft);
+        timeLeft--;
+      }else {
+        timeStamp.textContent = '0';
+        clearInterval(timeInterval);
+        alert("You ran out of time. Try again!");
+        quizFailed = true;
+      }
+    }, 1000);
+  }
 //write timer to time element
 //when start quiz is pressed start timer, hide first article, and show first question
 //when timer runs out hide current article, write time to score, and display allDone
