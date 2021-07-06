@@ -1,4 +1,8 @@
 //place all articles in variables
+var beginEL = document.querySelector("#begin")
+var questionsEL = document.querySelectorAll(".question")
+var allDoneEL = document.querySelector("#allDone")
+var highScoresEL = document.querySelector("#highScores")
 //place all buttons in variables
 //place the ul for high scores in a variable
 //place time in variable
