@@ -32,6 +32,15 @@ article {
     border-radius: 3px;
 }
 
+ul {
+    display: grid;
+    grid-template-columns: 40px 45px;
+}
+
+li {
+    list-style: none;
+}
+
 .hidden {
     display: none;
 }
