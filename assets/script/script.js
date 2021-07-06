@@ -46,6 +46,14 @@ let functions = {
             incorrect.classList.add("hidden")
         }, 2000)
     },
+    addElement: function (content) {
+        // create a new li
+        const newEntry = document.createElement("li");
+        newEntry.textContent = String(content);
+      
+        // add the newly created element and its content into the DOM
+        scoresGrid.appendChild(newEntry);
+      }
 };
 var timeLeft = ""
 var timeInterval = ""
@@ -69,7 +77,6 @@ var question4buttons = questionsEL[3].querySelectorAll("button");
 var question5buttons = questionsEL[4].querySelectorAll("button");
 var question6buttons = questionsEL[5].querySelectorAll("button");
 //allDone buttons
-var initials = allDoneEL.querySelector("#initials");
 var submit = allDoneEL.querySelector("#submit");
 var goBackBttns = highScoresEL.querySelectorAll("button")
 //ul for high scores in a variable
@@ -142,4 +149,10 @@ question6buttons[1].addEventListener("click", function() {
 })
 question6buttons[2].addEventListener("click", functions.incorrectAnswer)
 question6buttons[3].addEventListener("click", functions.incorrectAnswer)
-//when last question is answered stop timer, hide last question, write time to score, and display allDone
+//when submit button is pressed write initials and score to two seperate li's in scoreBoard (session) and display highscores
+submit.addEventListener("click", function () {
+    functions.addElement(String(document.getElementById('initials').value).toUpperCase());
+    functions.addElement(allDoneScoreEL.textContent);
+    functions.hideCurrentArticle(allDoneEL);
+    highScoresEL.classList.remove("hidden")  
+})
