@@ -83,7 +83,15 @@ startQuizBttn.addEventListener("click", function () {
     functions.showNextQuestion(currentQuestion);
 });
 //when question 1 is correct hide current article, itterate questionNumber, and display next question
-question1buttons[0].addEventListener("click", )
+question1buttons[0].addEventListener("click", functions.incorrectAnswer)
+question1buttons[1].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[0]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
+question1buttons[2].addEventListener("click", functions.incorrectAnswer)
+question1buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when question 2 is correct hide current article, itterate questionNumber, and display next question
 //when question 3 is correct hide current article, itterate questionNumber, and display next question
 //when question 4 is correct hide current article, itterate questionNumber, and display next question
