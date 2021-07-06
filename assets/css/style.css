@@ -59,4 +59,10 @@ li {
     margin: 10px;
 }
 
-/*highScores*/
+/*correct incorrect*/
+#correct, #incorrect {
+    border-top: 2px solid var(--color1);
+    margin: auto;
+    text-align: center;
+    width: 600px;
+}
