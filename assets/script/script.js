@@ -93,9 +93,54 @@ question1buttons[1].addEventListener("click", function() {
 question1buttons[2].addEventListener("click", functions.incorrectAnswer)
 question1buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when question 2 is correct hide current article, itterate questionNumber, and display next question
+question2buttons[0].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[1]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
+question2buttons[1].addEventListener("click", functions.incorrectAnswer)
+question2buttons[2].addEventListener("click", functions.incorrectAnswer)
+question2buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when question 3 is correct hide current article, itterate questionNumber, and display next question
+question3buttons[0].addEventListener("click", functions.incorrectAnswer)
+question3buttons[1].addEventListener("click", functions.incorrectAnswer)
+question3buttons[2].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[2]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
+question3buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when question 4 is correct hide current article, itterate questionNumber, and display next question
+question4buttons[0].addEventListener("click", functions.incorrectAnswer)
+question4buttons[1].addEventListener("click", functions.incorrectAnswer)
+question4buttons[2].addEventListener("click", functions.incorrectAnswer)
+question4buttons[3].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[3]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
 //when question 5 is correct hide current article, itterate questionNumber, and display next question
+question5buttons[0].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[4]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
+question5buttons[1].addEventListener("click", functions.incorrectAnswer)
+question5buttons[2].addEventListener("click", functions.incorrectAnswer)
+question5buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when question 6 is correct hide current article, itterate questionNumber, and display next question
+question6buttons[0].addEventListener("click", functions.incorrectAnswer)
+question6buttons[1].addEventListener("click", function() {
+    functions.correctAnswer();
+    functions.hideCurrentArticle(questionsEL[5]);
+    currentQuestion++
+    functions.showNextQuestion(currentQuestion);
+})
+question6buttons[2].addEventListener("click", functions.incorrectAnswer)
+question6buttons[3].addEventListener("click", functions.incorrectAnswer)
 //when timer runs out hide current article, write time to score, and display allDone
 //when last question is answered stop timer, hide last question, write time to score, and display allDone
