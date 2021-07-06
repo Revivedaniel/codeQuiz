@@ -54,10 +54,6 @@ li {
 }
 
 /*All done*/
-#allDone {
-    display: flex;
-    align-items: flex-start;
-}
 
 #allDone>* {
     margin: 10px;
