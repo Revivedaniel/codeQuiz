@@ -30,6 +30,8 @@ article {
     background-color: var(--color2);
     color: var(--color3);
     border-radius: 3px;
+} article>* {
+    margin: 15px auto;
 }
 
 ul {
