@@ -177,7 +177,8 @@ question6buttons[3].addEventListener("click", functions.incorrectAnswer);
 
 //when submit button is pressed write initials and score to two seperate li's in scoreBoard (session) and display highscores
 submit.addEventListener("click", function () {
-    functions.makeObject(initialsInput.value, timeLeft)
+    var key = String(initialsInput.value).toUpperCase();
+    functions.makeObject(key, timeLeft)
     functions.updateList();
     functions.hideCurrentArticle(allDoneEL);
     highScoresEL.classList.remove("hidden");
@@ -192,9 +193,7 @@ goBackBttns[1].addEventListener("click", function () {
     functions.updateList();
 })
 
-//when view scores is pressed
-  //hide current article
-  //show highScores article
+//when view scores is pressed hide current article and show highScores article
 viewScores.addEventListener("click", function () {
     if (currentQuestion === 0) {
         functions.hideCurrentArticle(beginEL)
