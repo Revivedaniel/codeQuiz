@@ -46,8 +46,37 @@ let functions = {
             incorrect.classList.add("hidden")
         }, 2000)
     },
+    //making initials and score into an object and push it to the array
+    makeObject: function (i, s) {
+        var newScore = {
+            initials: i,
+            score: s,
+        }
+        highScoresData.push(newScore)
+        //JSON.stringify the array and save it to localStorage
+        localStorage.setItem("highScores", JSON.stringify(highScoresData))
+    },
+
+    updateList: function () {
+        //clear innerHTML of the ul for the list items
+        scoresGrid.innerHTML = "";
+        var currentScores = JSON.parse(localStorage.getItem("highScores"))
+        for (let i = 0; i < currentScores.length; i++) {
+            const liContent = currentScores[i];
+            //render a new li for each highscore in localStorage
+            var li = document.createElement("li");
+            li.textContent = liContent;
+            scoresGrid.appendChild(li)   
+      }
+    }
     
 };
+
+//if there are values in localStorage
+  //JSON.parse them to variable
+//if there are no values in locaStorage than create an empty array variable
+var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
+
 var timeLeft = ""
 var timeInterval = ""
 //question index
@@ -69,13 +98,15 @@ var question3buttons = questionsEL[2].querySelectorAll("button");
 var question4buttons = questionsEL[3].querySelectorAll("button");
 var question5buttons = questionsEL[4].querySelectorAll("button");
 var question6buttons = questionsEL[5].querySelectorAll("button");
+//input for initials
+var initialsInput = document.querySelector("#initials");
 //allDone buttons
 var submit = allDoneEL.querySelector("#submit");
-var goBackBttns = highScoresEL.querySelectorAll("button")
+var goBackBttns = highScoresEL.querySelectorAll("button");
 //ul for high scores in a variable
-var scoresGrid = highScoresEL.querySelector("ul")
+var scoresGrid = highScoresEL.querySelector("ul");
 //time in variable
-var timeStamp = document.querySelector("#timeStamp")
+var timeStamp = document.querySelector("#timeStamp");
 //when start quiz is pressed start timer, hide first article, and show first question
 startQuizBttn.addEventListener("click", function () {
     functions.countdown(98);
@@ -83,15 +114,15 @@ startQuizBttn.addEventListener("click", function () {
     functions.showNextQuestion(currentQuestion);
 });
 //when question 1 is correct hide current article, itterate questionNumber, and display next question
-question1buttons[0].addEventListener("click", functions.incorrectAnswer)
+question1buttons[0].addEventListener("click", functions.incorrectAnswer);
 question1buttons[1].addEventListener("click", function() {
     currentQuestion++
     functions.hideCurrentArticle(questionsEL[0]);
     functions.showNextQuestion(currentQuestion);
     functions.correctAnswer();
 })
-question1buttons[2].addEventListener("click", functions.incorrectAnswer)
-question1buttons[3].addEventListener("click", functions.incorrectAnswer)
+question1buttons[2].addEventListener("click", functions.incorrectAnswer);
+question1buttons[3].addEventListener("click", functions.incorrectAnswer);
 //when question 2 is correct hide current article, itterate questionNumber, and display next question
 question2buttons[0].addEventListener("click", function() {
     currentQuestion++
@@ -99,23 +130,23 @@ question2buttons[0].addEventListener("click", function() {
     functions.showNextQuestion(currentQuestion);
     functions.correctAnswer();
 })
-question2buttons[1].addEventListener("click", functions.incorrectAnswer)
-question2buttons[2].addEventListener("click", functions.incorrectAnswer)
-question2buttons[3].addEventListener("click", functions.incorrectAnswer)
+question2buttons[1].addEventListener("click", functions.incorrectAnswer);
+question2buttons[2].addEventListener("click", functions.incorrectAnswer);
+question2buttons[3].addEventListener("click", functions.incorrectAnswer);
 //when question 3 is correct hide current article, itterate questionNumber, and display next question
-question3buttons[0].addEventListener("click", functions.incorrectAnswer)
-question3buttons[1].addEventListener("click", functions.incorrectAnswer)
+question3buttons[0].addEventListener("click", functions.incorrectAnswer);
+question3buttons[1].addEventListener("click", functions.incorrectAnswer);
 question3buttons[2].addEventListener("click", function() {
     currentQuestion++
     functions.hideCurrentArticle(questionsEL[2]);
     functions.showNextQuestion(currentQuestion);
     functions.correctAnswer();
 })
-question3buttons[3].addEventListener("click", functions.incorrectAnswer)
+question3buttons[3].addEventListener("click", functions.incorrectAnswer);
 //when question 4 is correct hide current article, itterate questionNumber, and display next question
-question4buttons[0].addEventListener("click", functions.incorrectAnswer)
-question4buttons[1].addEventListener("click", functions.incorrectAnswer)
-question4buttons[2].addEventListener("click", functions.incorrectAnswer)
+question4buttons[0].addEventListener("click", functions.incorrectAnswer);
+question4buttons[1].addEventListener("click", functions.incorrectAnswer);
+question4buttons[2].addEventListener("click", functions.incorrectAnswer);
 question4buttons[3].addEventListener("click", function() {
     currentQuestion++
     functions.hideCurrentArticle(questionsEL[3]);
@@ -129,37 +160,30 @@ question5buttons[0].addEventListener("click", function() {
     functions.showNextQuestion(currentQuestion);
     functions.correctAnswer();
 })
-question5buttons[1].addEventListener("click", functions.incorrectAnswer)
-question5buttons[2].addEventListener("click", functions.incorrectAnswer)
-question5buttons[3].addEventListener("click", functions.incorrectAnswer)
+question5buttons[1].addEventListener("click", functions.incorrectAnswer);
+question5buttons[2].addEventListener("click", functions.incorrectAnswer);
+question5buttons[3].addEventListener("click", functions.incorrectAnswer);
 //when question 6 is correct hide current article, itterate questionNumber, and display next question
-question6buttons[0].addEventListener("click", functions.incorrectAnswer)
+question6buttons[0].addEventListener("click", functions.incorrectAnswer);
 question6buttons[1].addEventListener("click", function() {
     currentQuestion++
     functions.hideCurrentArticle(questionsEL[5]);
     functions.showNextQuestion(currentQuestion);
     functions.correctAnswer();
 })
-question6buttons[2].addEventListener("click", functions.incorrectAnswer)
-question6buttons[3].addEventListener("click", functions.incorrectAnswer)
+question6buttons[2].addEventListener("click", functions.incorrectAnswer);
+question6buttons[3].addEventListener("click", functions.incorrectAnswer);
 
 //when submit button is pressed write initials and score to two seperate li's in scoreBoard (session) and display highscores
 submit.addEventListener("click", function () {
-    
+    functions.makeObject(initialsInput.value, timeLeft)
+    //insert update list function
     functions.hideCurrentArticle(allDoneEL);
-    highScoresEL.classList.remove("hidden")  
-})
+    highScoresEL.classList.remove("hidden");
+});
 
-//if there are values in localStorage
-  //JSON.parse them to variable
-//if there are no values in locaStorage than create an empty array variable
-var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 
-//after initials are intup, 
-  //create a new object with the initials and score
-
-  //push that objust to the array
-  //JSON.stringify the array and save it to localStorage
+//after initials are intup,
   //clear innerHTML of the ul for the list items
   //render a new li for each highscore in localStorage
 
