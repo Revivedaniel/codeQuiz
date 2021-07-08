@@ -65,16 +65,16 @@ let functions = {
             const liContent = currentScores[i];
             //render a new li for each highscore in localStorage
             var li = document.createElement("li");
-            li.textContent = liContent;
+            li.textContent = liContent.initials +" "+ liContent.score;
             scoresGrid.appendChild(li)   
       }
     }
     
 };
 
-//if there are values in localStorage
-  //JSON.parse them to variable
-//if there are no values in locaStorage than create an empty array variable
+// if there are values in localStorage
+//   JSON.parse them to variable
+// if there are no values in locaStorage than create an empty array variable
 var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 
 var timeLeft = ""
@@ -103,7 +103,7 @@ var initialsInput = document.querySelector("#initials");
 //allDone buttons
 var submit = allDoneEL.querySelector("#submit");
 var goBackBttns = highScoresEL.querySelectorAll("button");
-//ul for high scores in a variable
+//highscores article 
 var scoresGrid = highScoresEL.querySelector("ul");
 //time in variable
 var timeStamp = document.querySelector("#timeStamp");
@@ -177,13 +177,24 @@ question6buttons[3].addEventListener("click", functions.incorrectAnswer);
 //when submit button is pressed write initials and score to two seperate li's in scoreBoard (session) and display highscores
 submit.addEventListener("click", function () {
     functions.makeObject(initialsInput.value, timeLeft)
-    //insert update list function
+    functions.updateList();
     functions.hideCurrentArticle(allDoneEL);
     highScoresEL.classList.remove("hidden");
 });
 
+//when go back is pressed reload page and show #begin
+goBackBttns[0].addEventListener("click", function () {
+    location.reload();
+})
+goBackBttns[1].addEventListener("click", function () {
+    localStorage.setItem("highScores", JSON.stringify(""))
+    functions.updateList();
+})
+//when the clear scores button is pressed
+  //reset localStorage for highScores to ""
+  //updateList
 
-//after initials are intup,
-  //clear innerHTML of the ul for the list items
-  //render a new li for each highscore in localStorage
 
+//when view scores is pressed
+  //hide current article
+  //show highScores article
