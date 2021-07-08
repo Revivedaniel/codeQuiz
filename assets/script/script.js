@@ -46,14 +46,7 @@ let functions = {
             incorrect.classList.add("hidden")
         }, 2000)
     },
-    addElement: function (content) {
-        // create a new li
-        const newEntry = document.createElement("li");
-        newEntry.textContent = String(content);
-      
-        // add the newly created element and its content into the DOM
-        scoresGrid.appendChild(newEntry);
-      }
+    
 };
 var timeLeft = ""
 var timeInterval = ""
@@ -149,10 +142,24 @@ question6buttons[1].addEventListener("click", function() {
 })
 question6buttons[2].addEventListener("click", functions.incorrectAnswer)
 question6buttons[3].addEventListener("click", functions.incorrectAnswer)
+
 //when submit button is pressed write initials and score to two seperate li's in scoreBoard (session) and display highscores
 submit.addEventListener("click", function () {
-    functions.addElement(String(document.getElementById('initials').value).toUpperCase());
-    functions.addElement(allDoneScoreEL.textContent);
+    
     functions.hideCurrentArticle(allDoneEL);
     highScoresEL.classList.remove("hidden")  
 })
+
+//if there are values in localStorage
+  //JSON.parse them to variable
+//if there are no values in locaStorage than create an empty array variable
+var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
+
+//after initials are intup, 
+  //create a new object with the initials and score
+
+  //push that objust to the array
+  //JSON.stringify the array and save it to localStorage
+  //clear innerHTML of the ul for the list items
+  //render a new li for each highscore in localStorage
+
