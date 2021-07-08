@@ -79,6 +79,7 @@ var highScoresData = JSON.parse(localStorage.getItem("highScores")) || []
 
 var timeLeft = ""
 var timeInterval = ""
+var viewScores = document.querySelector("#viewScores")
 //question index
 var currentQuestion = 0;
 //articles in variables
@@ -190,11 +191,16 @@ goBackBttns[1].addEventListener("click", function () {
     localStorage.setItem("highScores", JSON.stringify(""))
     functions.updateList();
 })
-//when the clear scores button is pressed
-  //reset localStorage for highScores to ""
-  //updateList
-
 
 //when view scores is pressed
   //hide current article
   //show highScores article
+viewScores.addEventListener("click", function () {
+    if (currentQuestion === 0) {
+        functions.hideCurrentArticle(beginEL)
+        functions.hideCurrentArticle(questionsEL[0])
+    } else {
+        functions.hideCurrentArticle(questionsEL[currentQuestion])
+    }
+    highScoresEL.classList.remove("hidden")
+})
