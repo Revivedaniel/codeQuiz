@@ -36,7 +36,7 @@ article {
 
 ul {
     display: grid;
-    grid-template-columns: 40px 45px;
+    grid-template-columns: 72px 72px;
 }
 
 li {
