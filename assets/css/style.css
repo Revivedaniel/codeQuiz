@@ -9,10 +9,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-#time {
+    font-size: 30px;
+} #time {
     display: flex;
+} #viewScores:hover {
+    cursor: pointer;    
 }
 
 /*All articles style*/
@@ -66,3 +67,4 @@ li {
     text-align: center;
     width: 600px;
 }
+
