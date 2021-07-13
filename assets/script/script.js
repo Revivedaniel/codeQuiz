@@ -9,7 +9,8 @@ let functions = {
             timeLeft--;
             timeStamp.textContent = String(timeLeft);
           } else {
-            timeStamp.textContent = '0';
+              timeLeft = 00;
+            timeStamp.textContent = '00';
             clearInterval(timeInterval);
             alert("You ran out of time!");
             questionsEL[currentQuestion].classList.add("hidden");
