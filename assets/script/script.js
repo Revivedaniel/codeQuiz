@@ -3,7 +3,7 @@ let functions = {
     //countdown method
     countdown: function(time) {
         timeLeft = time;
-      
+        //start a timer that counts down from a time passed through, if the time runs out hide the current question and show initials page
         timeInterval = setInterval(function () {
            if (timeLeft > 1) {
             timeStamp.textContent = String(timeLeft);
@@ -11,7 +11,9 @@ let functions = {
           } else {
             timeStamp.textContent = '0';
             clearInterval(timeInterval);
-            alert("You ran out of time. Try again!");
+            alert("You ran out of time!");
+            questionsEL[currentQuestion].classList.add("hidden");
+            allDoneEL.classList.remove("hidden")
           }
         }, 1000);
       },
