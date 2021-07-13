@@ -205,5 +205,6 @@ viewScores.addEventListener("click", function () {
     } else {
         functions.hideCurrentArticle(questionsEL[currentQuestion])
     }
+    functions.updateList();
     highScoresEL.classList.remove("hidden")
 })
