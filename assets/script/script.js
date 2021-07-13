@@ -41,6 +41,7 @@ let functions = {
     },
     //Question is incorrect
     incorrectAnswer: function () {
+        timeLeft = timeLeft - 5;
         incorrect.classList.remove("hidden")
         setTimeout(function () {
             incorrect.classList.add("hidden")
