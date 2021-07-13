@@ -6,8 +6,8 @@ let functions = {
         //start a timer that counts down from a time passed through, if the time runs out hide the current question and show initials page
         timeInterval = setInterval(function () {
            if (timeLeft > 1) {
-            timeStamp.textContent = String(timeLeft);
             timeLeft--;
+            timeStamp.textContent = String(timeLeft);
           } else {
             timeStamp.textContent = '0';
             clearInterval(timeInterval);
